@@ -1,0 +1,154 @@
+﻿html,body {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-width: 1080px;
+}
+
+/*分隔线（实线）*/
+.row-driveline {
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid $gray-lighter;
+}
+
+/*分隔线（虚线）*/
+.row-dashline {
+    width: 100%;
+    height: 0px;
+    border-top: 1px dashed $gray-lighter;
+}
+
+/* 顶部 */
+.g-head {
+    position:absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:50px;
+    line-height:50px;
+    z-index:100;
+    .g-head-bg {
+        position:absolute;
+        left: 0;
+        top: 0;
+        width:100%;
+        height:100%;
+        z-index:101;
+    }
+    .g-head-content {
+        position:relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height:100%;
+        margin:0 auto;
+        z-index:102;
+        .u-logo{
+            position: absolute;
+            width: 200px;
+            height: 100%;
+            left: 100px;
+            text-align: left;
+        }
+        .u-login-info{
+            position: absolute;
+            width: 200px;
+            height: 100%;
+            right: 100px;
+            text-align: right;
+        }
+    }
+}
+//显示区
+.g-bd{
+    position:relative;
+    padding-top:50px;
+    height: 100%;
+    width: 100%;
+}
+.g-wrap{
+    position:relative;
+    border-top: 1px solid $gray-base;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    .g-left-menu{
+        width: 20%;
+        height: 100%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding: 0;
+        overflow: hidden;
+        transition: width 0.5s;
+    }
+    .g-right-container{
+        width: 80%;
+        height: 100%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding: 0;
+        transition: width 0.5s;
+    }
+    .m-menu-collapse{
+        position: absolute;
+        left: 20%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: $gray-light;
+        transition: left 0.5s;
+        z-index: 1;
+        &:hover{
+            box-shadow: 0px 0px 1px #acacac;
+        }
+        .u-collapse-icon{
+            cursor: pointer;
+            content: ' ';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            z-index: 2;
+        }
+        &.z-left .u-collapse-icon{
+            background-image: url(/style/img/angular/arrow-left.png);
+        }
+        &.z-right .u-collapse-icon{
+            background-image: url(/style/img/angular/arrow-right.png);
+        }
+    }
+}
+//主内容区
+.g-view{
+    position:relative;
+    height: 100%;
+    width: 100%;
+    padding-top:10px;
+    padding-left:30px;
+    padding-right:30px;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
+.m-role{
+    .m-tree-container{
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+ 

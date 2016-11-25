@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <div class="modal-title">{{options.title}}
+        <button type="button" class="btn btn-link pull-right" ng-click="cancel();">
+            <span class="icon icon-remove"></span>
+        </button>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="form-control-static" ng-bind-html="options.content"></div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="ok()" ng-show="options.showOk">{{options.okTxt}}</button>
+    <button class="btn btn-default" ng-click="cancel()" ng-show="options.showCancel">{{options.cancelTxt}}</button>
+</div>

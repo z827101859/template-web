@@ -1,0 +1,77 @@
+<form class="form form-horizontal" role="form" name="formValidator" novalidate form-Validator="" display-way="hover">
+    <div class="form-group form-group-sm">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="#">demo</a></li>
+                <li class="active">form</li>
+            </ol>
+       </div>
+    </div>
+    form表单信息：
+    <div class="u-formborder form-horizontal-label-4-2">
+
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">姓名：</label>
+            <div class="col-sm-4">
+                <input required uniquecheck check-url="/xhr/demo/checkname.json" ng-model="formData.name" class="form-control" type="text" name="name">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">身份：</label>
+            <div class="col-sm-4">
+                <select required class="form-control" ng-model="formData.identity" ng-options="item.key as item.value for item in identities" ng-change="changeIdentity();" name="identity">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">邮箱地址：</label>
+            <div class="col-sm-4">
+                <input required emailcheck ng-model="formData.email" class="form-control" type="text" name="email">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">手机号码：</label>
+            <div class="col-sm-4">
+                <input required phonenumcheck ng-model="formData.phonenumcheck" class="form-control" type="text" name="phonenumcheck">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">银行卡号：</label>
+            <div class="col-sm-4">
+                <input required numcheck ng-maxlength="16" ng-model="formData.numcheck" class="form-control" type="text" name="numcheck">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">ip地址：</label>
+            <div class="col-sm-4">
+                <input required ipcheck ng-model="formData.ipcheck" class="form-control" type="text" name="ipcheck">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">密码：</label>
+            <div class="col-sm-4">
+                <input required ng-model="formData.password" class="form-control" type="password" name="password">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">重复密码：</label>
+            <div class="col-sm-4">
+                <input required form-Repeat="password" ng-model="formData.repeatPassword" class="form-control" type="password" name="repeatPassword">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">备注：</label>
+            <div class="col-sm-4">
+                <textarea required countchars="100" style="height:150px;" ng-model="formData.remark" name="remark" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-sm-offset-1 col-sm-10">
+                <button type="button" form-Submit="submitFrom();" class="btn btn-success btn-sm">确定</button>
+                <a type="button" class="btn btn-default btn-sm">取消</a>
+            </div>
+        </div>
+    </div>
+</form>
+    

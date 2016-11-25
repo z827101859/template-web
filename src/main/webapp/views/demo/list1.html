@@ -1,0 +1,85 @@
+<form class="form form-horizontal" role="form" name="formValidator" novalidate form-Validator="">
+    <div class="form-group form-group-sm">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="#">demo</a></li>
+                <li class="active">list1</li>
+            </ol>
+        </div>
+    </div>
+    <div class="form-group form-group-sm search-wrap">
+        <div class="col-sm-9">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-sm" ng-click="deleteItems();">删除</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click="exportItems();">导出</button>
+            </div>
+            <div class="btn-group">
+                <sharkselecter name="selecter1" ng-model="searchForm.class" selecter-data="selectItems" onselect="onselect" style="width: 300px;"></sharkselecter>
+            </div>
+        </div>
+        <div class="col-sm-3 text-right">
+            <input type="text" placeholder="请输入关键字搜索" ng-model="searchForm.key" class="input" ng-keydown="listenKeyDown($event);" />
+            <a class="search-btn" href="javascript:void(0);" ng-click="search();"><span class="icon icon-search"></span></a>
+        </div>
+    </div>
+</form>
+<div class="table-wrap">
+    <table checkable item-list="itemList" class="table table-condensed table-striped">
+        <thead>
+            <tr class="info">
+                <th class="width-2">
+                    <input type="checkbox" ng-model="isAllItemsChecked" />
+                </th>
+                <th>
+                    ID
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    学号
+                </th>
+                <th>
+                    班级
+                </th>
+            </tr>
+        </thead>
+        <tbody ng-show="itemList.length == 0">
+            <tr>
+                <td colspan="5">没有查询到任何数据</td>
+            </tr>
+        </tbody>
+        <tbody ng-show="itemList.length > 0">
+            <tr class="animate-repeat" ng-repeat="item in itemList track by $index">
+                <td>
+                    <input type="checkbox" ng-model="item.isItemChecked" item-index="{{$index}}"/>
+                </td>
+                <td>
+                    {{item.id}}
+                </td>
+                <td>
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.no}}
+                </td>
+                <td>
+                    {{item.class}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-sm-5">
+        共{{pagination.total}}条，每页显示
+        <div class="btn-group btn-pagination">
+            <button ng-click="changePageSize(10);" ng-class="{btn:true,'btn-default':true,active:pagination.size==10}">10</button>
+            <button ng-click="changePageSize(20);" ng-class="{btn:true,'btn-default':true,active:pagination.size==20}">20</button>
+            <button ng-click="changePageSize(50);" ng-class="{btn:true,'btn-default':true,active:pagination.size==50}">50</button>
+        </div>
+    </div>
+    <div class="col-sm-7 text-right">
+        <sharkpager name="pager1" current-page="pagination.page" total-page="pagination.totalPage" onwillchange="pageChanged"></sharkpager>
+    </div>
+</div>

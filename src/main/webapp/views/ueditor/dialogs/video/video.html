@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <!-- build:js(src/main/webapp) /js/ueditor/internal.js -->
+    <script src="/js/lib/ueditor/internal.js"></script>
+    <!-- endbuild -->
+    <style type="text/css">
+        * {
+            color: #838383;
+            margin: 0;
+            padding: 0
+        }
+        
+        html,
+        body {
+            font-size: 12px;
+            overflow: hidden;
+        }
+        
+        input {
+            width: 210px;
+            height: 21px;
+            line-height: 21px;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="padding-top: 10px;padding-left: 15px;">
+        <label>请输入视频地址：</label>
+        <input style="width: 360px;" id="input_videourl" value="" />
+    </div>
+    <div style="padding-top: 10px;padding-left: 15px;">
+        <label>请输入视频图片：</label>
+        <input style="width: 360px;" id="input_poster" value="" />
+    </div>
+    <script type="text/javascript">
+    var videoInput = $G('input_videourl');
+    var posterInput = $G('input_poster');
+    dialog.onok = function() {
+        editor.execCommand('insertvideo', {
+            url: videoInput.value,
+            poster: posterInput.value,
+            width: '',
+            height: '',
+            align: 'none'
+        }, 'upload');
+        dialog.close();
+    };
+    $focus(videoInput);
+    </script>
+</body>
+
+</html>

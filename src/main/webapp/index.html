@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>angularjs项目模板</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css /style/css/lib.css -->
+    <link rel="stylesheet" href="/style/css/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" href="/style/css/angular-toastr.css" />
+    <link rel="stylesheet" href="/style/css/ueditor.css" />
+    <link rel="stylesheet" href="/style/css/idangerous.swiper.css" />
+    <!-- endbuild -->
+    <!-- build:css /style/css/main.css -->
+    <link rel="stylesheet" href="/style/css/main.css">
+    <!-- endbuild -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'FontAwesome';
+            src: url("font/fontawesome-webfont.eot?v=4.3.0");
+            src: url("font/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("font/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("font/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("font/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("font/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="g-head" ng-controller="GlobalHeaderCtrl">
+        <div class="g-head-bg"></div>
+        <div class="g-head-content">
+            <div class="u-logo">
+                template-angular
+            </div>
+            <div class="u-login-info">
+                <span ng-bind-html="nickname"></span>
+                <a>退出</a>
+            </div>
+        </div>
+    </div>
+    <div class="g-bd">
+        <div class="g-wrap">
+            <div id="js-left-menu" class="g-left-menu">
+                <div class="nav-bar" nav>
+                    {{navtitle}}
+                    <a class="nav-item nav-title nav-level1 js-group-title" href="javascript:void(0);" admin-perm perm-no="100">表单</a>
+                    <div class="nav-wrap js-group-wrap">
+                        <a nav-module="demo-form" ng-click="go('demo-form');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="110">form</a>
+                        <a nav-module="demo-form1" ng-click="go('demo-form1');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="120">form1</a>
+                    </div>
+                    <a class="nav-item nav-title nav-level1 js-group-title" href="javascript:void(0);" admin-perm perm-no="200">列表</a>
+                    <div class="nav-wrap js-group-wrap">
+                        <a nav-module="demo-list" ng-click="go('demo-list');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="210">list</a>
+                        <a nav-module="demo-list1" ng-click="go('demo-list1');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="220">list1</a>
+                        <a nav-module="demo-list2" ng-click="go('demo-list2.list2-child');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="230">list2</a>
+                    </div>
+                    <a class="nav-item nav-title nav-level1 js-group-title" href="javascript:void(0);" admin-perm perm-no="300">其他</a>
+                    <div class="nav-wrap js-group-wrap">
+                        <a nav-module="demo-htmleditor" ng-click="go('demo-htmleditor');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="310">htmleditor</a>
+                        <a nav-module="demo-perm" ng-click="go('demo-perm',{user:'sweetyx'});" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="320">perm</a>
+                        <a nav-module="demo-modal" ng-click="go('demo-modal');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="330">modal</a>
+                        <a nav-module="demo-uib" ng-click="go('demo-uib.tab1');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="340">uib</a>
+                        <a nav-module="demo-navbar" ng-click="go('demo-navbar');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="350">nav</a>
+                    </div>
+                    <a class="nav-item nav-title nav-level1 js-group-title" href="javascript:void(0);" admin-perm perm-no="400">测试</a>
+                    <div class="nav-wrap js-group-wrap">
+                        <a nav-module="demo-test" ng-click="go('demo-test');" class="nav-item nav-link nav-level1" href="javascript:void(0);" admin-perm perm-no="410">test</a>
+                    </div>
+                </div>
+            </div>
+            <div class="m-menu-collapse z-left" menu-collapse>
+                <a class="u-collapse-icon"></a>
+            </div>
+            <div id="js-right-container" class="g-right-container">
+                <div ui-view="" class="g-view view-animate"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- build:js(src/main/webapp) /js/ueditor.js -->
+    <script src="/js/lib/ueditor/ueditor.config.js"></script>
+    <script src="/js/lib/ueditor/ueditor.all.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(src/main/webapp) /js/lib.js -->
+    <script src="/js/lib/jquery/jquery.js"></script>
+    <script src="/js/lib/underscore/underscore.js"></script>
+    <script src="/js/lib/md5/md5.js"></script>
+    <script src="/js/lib/moment/moment-with-locales.js"></script>
+    <script src="/js/lib/eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script src="/js/lib/swiper/idangerous.swiper.js"></script>
+    <script src="/js/lib/echarts/echarts.js"></script>
+    <!-- endbuild -->
+
+    <script type="text/javascript" src="/js/main.page.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+{
+	"code":200,
+	"data":"<textarea ng-model=\"content\" countchars=100 maxlimit=200 class=\"form-control\"></textarea>"
+}

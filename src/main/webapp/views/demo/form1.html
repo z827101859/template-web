@@ -1,0 +1,154 @@
+<form class="form form-horizontal" role="form" name="formValidator" novalidate form-validator>
+    <div class="form-group form-group-sm">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="#">demo</a></li>
+                <li class="active">formModule</li>
+            </ol>
+        </div>
+    </div>
+    <div class="form-horizontal-label-4-1">
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">附件：</label>
+            <div class="col-sm-4">
+                <sharkfileupload class="btn btn-primary btn-sm" name="fileupload1" url="/angular/xhr/file/upload.json" accept="image/*" dragable="true" autoupload="true" onselected="onselected" onuploading="onuploading" onuploaded="onuploaded" onfailed="onfailed">
+                    请选择文件
+                </sharkfileupload>
+                {{filename}}
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">轮播：</label>
+            <div class="col-sm-6">
+                <div style="width:100%;height:300px;" carousel carousel-source="carouselSource" carousel-options="{hasPagination:true,hasArrow:true}"></div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">动态html：</label>
+            <div class="col-sm-6">
+                <div compile url="/xhr/demo/dynamicHtml.json"></div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">共享对象：</label>
+            <div class="col-sm-6">
+                <div class="plate">
+                    <div class="plate-head">
+                        <a type="button" class="btn btn-link btn-sm" href="javascript:void(0);">
+                            <span class="icon icon-plus-sign"></span>
+                        </a>
+                    </div>
+                    <div class="plate-body">
+                        <ul class="list-group">
+                            <li ng-repeat="item in unitList track by $index" class="list-group-item">{{item.name}}<a class="pull-right" ng-click="removeItem($index)">移除</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="zhanghao" class="col-sm-1 control-label">帐号：</label>
+            <div class="col-sm-6">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="请输入帐号" name="account" ng-model="account">
+                    <span class="input-group-addon">@</span>
+                    <select class="form-control">
+                        <option value="mail.qiye.163.com">mail.qiye.163.com</option>
+                        <option value="qq.com">qq.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">金额：</label>
+            <div class="col-sm-6">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" aria-label="...">
+                    <span class="input-group-addon">$</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">绑定html：</label>
+            <div class="col-sm-6">
+                <p class="col-sm-11 form-control-static" ng-bind-html="html"></p>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">名称：</label>
+            <div class="col-sm-6">
+                <p class="col-sm-11 form-control-static">王少1</p>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">纵列：</label>
+            <div class="col-sm-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="optionsCheckboxs1" ng-model="formData.cb1"> 选项 1
+                    </label>
+                    <a ng-click="detailView()">详情查看</a>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="optionsCheckboxs1" ng-model="formData.cb2">
+                        详情查看
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">横排：</label>
+            <div class="col-sm-10">
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="optionsCheckboxs2" ng-model="formData.cb3"> 选项 1
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="optionsCheckboxs2" ng-model="formData.cb4"> 选项 2
+                </label>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">纵列：</label>
+            <div class="col-sm-4">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios1" ng-model="formData.rd1" ng-value="0"> 选项 1
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios1" ng-model="formData.rd1" ng-value="1"> 选项 2
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label class="col-sm-1 control-label">横排：</label>
+            <div class="col-sm-10">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadios2" ng-model="formData.rd2" ng-value="0"> 选项 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadios2" ng-model="formData.rd2" ng-value="1"> 选项 2
+                </label>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label class="control-label">我是标题</label>
+                </div>
+                <div class="panel-body">
+                    我是内容
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-sm-11">
+                <button type="button" form-submit="log();" class="btn btn-success btn-sm">打印值</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-sm-12">
+        <ol class="breadcrumb">
+            <li><a href="#">demo</a></li>
+            <li class="active">list2</li>
+        </ol>
+    </div>
+</div>
+<!--饼状图部分-->
+<div echarts name='myecharts' echart-conf='conf' echart-opt='opt'></div>
+<sharktabs name="tabs1" event="click" active="curActive" ontabswitch="tabSwitch">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="javascript:void(0);" ng-click="changeTab(0);">tab1</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" ng-click="changeTab(1);">tab2</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane">
+            <span style="color: #ff0000;">该tab刷新不影响父容器</span>
+            <div ui-view></div>
+        </div>
+        <div class="tab-pane">
+            <div>我是tab2</div>
+        </div>
+    </div>
+</sharktabs>
